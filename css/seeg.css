@@ -283,6 +283,83 @@ header.masthead::before {
   }
 }
 
+/* ===== FOOTER premium ===== */
+
+.footer {
+  padding: 56px 0 28px; /* mais respiro */
+}
+
+.footer-partners{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(92px, max-content));
+  justify-content: center;
+  align-items: center;
+  gap: 14px 22px; /* row-gap / column-gap */
+  margin: 0 auto 14px;
+}
+
+.footer-partners .partner {
+  width: 110px;   /* desktop: menor e elegante */
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-partners .partner img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0.45;              /* mais premium */
+  filter: saturate(0.7);      /* menos “publicidade” */
+}
+
+/* Linha divisória bem sutil */
+.footer-divider {
+  width: min(640px, 90%);
+  height: 1px;
+  margin: 0 auto 18px;
+  background: rgba(0,0,0,0.06);
+}
+
+/* Texto institucional mais discreto */
+.footer-info {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.62);
+  margin-bottom: 10px;
+}
+
+/* Copyright menor */
+.footer-copy {
+  font-size: 0.85rem;
+  color: rgba(0,0,0,0.55);
+}
+
+/* ===== Mobile: 2 linhas e logos menores ===== */
+@media (max-width: 768px) {
+  .footer { padding: 28px 0 16px; }
+
+  .footer-partners {
+    grid-template-columns: repeat(2, max-content); /* 2x2 */
+    column-gap: 18px;
+    row-gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .footer-partners .partner {
+    width: 92px;   /* <<< menor no mobile */
+    height: 24px;  /* <<< menor no mobile */
+  }
+
+  .footer-info {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+}
+
+
+
 
 
 
