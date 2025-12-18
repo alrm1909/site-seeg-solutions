@@ -112,11 +112,11 @@ header.masthead::before {
 
 /* Overlay Portfolio */
 #portfolio .portfolio-box .portfolio-box-caption{
-  background: rgba(0, 245, 212, 0.92) !important; /* verde Seeg */
+  background: rgba(0, 254, 212, 0.92) !important; /* verde Seeg */
 }
 
 :root{
-  --seeg-mint: #00f5d4;
+  --seeg-mint: #00fed4;
 }
 
 /* Cards */
@@ -246,6 +246,44 @@ header.masthead::before {
   font-size: 0.95rem;
   color: #6c757d;
 }
+
+/* ==============================
+   PORTFOLIO — faixa fixa no mobile
+   (não mexe no desktop/hover)
+================================ */
+
+/* Mobile / touch: não existe hover, então mostramos o nome sempre */
+@media (hover: none), (max-width: 991.98px) {
+  #portfolio .portfolio-box .portfolio-box-caption {
+    opacity: 1 !important;          /* sempre visível */
+    height: 18% !important;         /* “dois dedos” (ajuste 22–30%) */
+    top: auto !important;
+    bottom: 0 !important;
+    background: rgba(0, 254, 212, 0.92) !important; /* turquesa (ajuste p/ o seu) */
+    border-radius: 0 !important;    /* sem bordas */
+    padding: 0.75rem 0.9rem !important;
+  }
+
+  /* deixa só o nome, centralizado e com quebra bonita */
+  #portfolio .portfolio-box .portfolio-box-caption .project-name {
+    font-size: 1.15rem !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    max-width: 90%;
+    white-space: normal !important;
+    text-align: center;
+  }
+}
+
+/* Desktop: mantém o comportamento original (overlay só no hover) */
+@media (hover: hover) and (min-width: 992px) {
+  #portfolio .portfolio-box .portfolio-box-caption {
+    height: 100% !important;
+    background: rgba(0, 254, 212, 0.92) !important; /* turquesa também no hover */
+  }
+}
+
+
 
 
 
