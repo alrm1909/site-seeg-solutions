@@ -1,0 +1,256 @@
+/* seeg.css — sobrescreve o styles.css sem quebrar o template */
+:root{
+  --seeg-black: #000000;
+  --seeg-white: #ffffff;
+  --seeg-mint:  #00fed4;
+
+  /* sobrescreve as cores "primary" do Bootstrap/tema */
+  --bs-primary: var(--seeg-mint);
+  --bs-primary-rgb: 0, 254, 212;
+  --bs-link-color: var(--seeg-mint);
+  --bs-link-hover-color: var(--seeg-mint);
+}
+
+/* Botões */
+.btn-primary{
+  background-color: var(--seeg-mint) !important;
+  border-color: var(--seeg-mint) !important;
+  color: #000 !important;
+  font-weight: 700;
+}
+.btn-primary:hover{
+  filter: brightness(0.95);
+}
+
+/* Tema Creative: troca o laranja do menu/divisor pelo mint */
+#mainNav .navbar-nav .nav-item .nav-link:hover,
+#mainNav .navbar-nav .nav-item .nav-link:active,
+#mainNav .navbar-nav .nav-item .nav-link.active{
+  color: var(--seeg-mint) !important;
+}
+
+/* Quando a navbar encolhe (scroll), o tema coloca hover laranja — substitui */
+#mainNav.navbar-shrink .navbar-brand:hover,
+#mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover{
+  color: var(--seeg-mint) !important;
+}
+
+/* HERO (masthead) — remove o overlay marrom do template e deixa neutro (preto) */
+header.masthead{
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.55) 40%,
+      rgba(0, 0, 0, 0.80) 100%
+    ),
+    url("../assets/img/bg-masthead.jpg") !important;
+
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-size: cover !important;
+}
+
+header.masthead::before {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.55) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  ) !important;
+}
+
+.seeg-slogan{
+  color: rgba(255,255,255,0.88);
+  font-size: 1.15rem;
+}
+
+.divider{
+  background-color: var(--seeg-mint) !important;
+}
+
+/* ================================
+   LOGO SEEG — versão definitiva
+   ================================ */
+
+/* Container da logo */
+.navbar-brand{
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px; /* área clicável */
+}
+
+/* Ambas as logos ocupam o MESMO espaço */
+.seeg-logo{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 90px; /* tamanho real da logo */
+  width: auto;
+  transition: opacity .2s ease;
+}
+
+/* Estado inicial (desktop topo) */
+.seeg-logo--white{ opacity: 1; }
+.seeg-logo--black{ opacity: 0; }
+
+/* Desktop após scroll */
+#mainNav.navbar-shrink .seeg-logo--white{ opacity: 0; }
+#mainNav.navbar-shrink .seeg-logo--black{ opacity: 1; }
+
+/* MOBILE: sempre preta */
+@media (max-width: 991px){
+  .seeg-logo--white{ opacity: 0 !important; }
+  .seeg-logo--black{ opacity: 1 !important; }
+
+  .seeg-logo{
+    height: 70px;
+  }
+}
+
+/* Overlay Portfolio */
+#portfolio .portfolio-box .portfolio-box-caption{
+  background: rgba(0, 245, 212, 0.92) !important; /* verde Seeg */
+}
+
+:root{
+  --seeg-mint: #00f5d4;
+}
+
+/* Cards */
+
+.seeg-contact-card{
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 22px 16px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+}
+
+.seeg-contact-ico{
+  font-size: 30px;
+  color: var(--seeg-mint);
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.seeg-contact-title{
+  font-weight: 800;
+  letter-spacing: .2px;
+  margin-bottom: 4px;
+}
+
+.seeg-contact-text{
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+/* WhatsApp flutuante — círculo verde + ícone (premium) */
+.seeg-wa-float{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+
+  background: var(--seeg-mint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+  text-decoration: none;
+
+  box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* Ícone: escolha UMA cor */
+.seeg-wa-float i{
+  font-size: 30px;
+  line-height: 1;
+  color: #0b0f10; /* PRETO #0b0f10 (recomendado) */
+  /* color: #fff; */ /* BRANCO (alternativa) */
+
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Hover discreto, sem “sumir” */
+.seeg-wa-float:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(0,0,0,0.28);
+}
+
+/* SOBRE: usa o mesmo estilo do slogan, mas com cor preta para leitura no verde */
+
+#about{
+  padding: 80px 0; /* menos altura que o hero */
+}
+
+#about .seeg-slogan{
+  color: #0b0f10;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+#about .seeg-about-text{
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* Fale com a Seeg — CTA final */
+
+#contact {
+  padding: 6rem 0;
+}
+
+/* Como atuamos (Services) — divisor simples e consistente */
+#services .section-divider {
+  width: 48px;
+  height: 3px;
+  background-color: var(--bs-primary);
+  margin: 1rem auto 2rem;
+}
+
+#contact .divider {
+  width: 48px;
+  height: 3px;
+  background-color: var(--bs-primary);
+  margin: 1rem auto 2rem;
+}
+
+.btn-whatsapp {
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  padding: 1rem 2.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.35);
+}
+
+.contact-helper-text {
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+
+
+
+
+
+
+
